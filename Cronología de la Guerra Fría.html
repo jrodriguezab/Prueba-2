@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<!-- saved from url=(0067)file:///C:/Users/sara.clavell/Downloads/guerra_fria_cronologia.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronología de la Guerra Fría</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #a0a0a0;
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #ff6b6b, #4ecdc4, #45b7d1);
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 60px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            text-align: right;
+            padding-right: 60%;
+        }
+
+        .timeline-item:nth-child(even) {
+            text-align: left;
+            padding-left: 60%;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid rgba(255, 255, 255, 0.1);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-right: 15px solid rgba(255, 255, 255, 0.1);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ff6b6b;
+            border: 4px solid #1a1a2e;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        .year {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+        }
+
+        .event-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #4ecdc4;
+        }
+
+        .event-description {
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 15px;
+        }
+
+        .event-impact {
+            font-style: italic;
+            color: #45b7d1;
+            font-size: 0.9em;
+            border-left: 3px solid #45b7d1;
+            padding-left: 10px;
+            margin-top: 10px;
+        }
+
+        .usa-flag {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .ussr-flag {
+            color: #ff4757;
+            font-weight: bold;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                box-shadow: 0 0 30px rgba(255, 107, 107, 0.8);
+            }
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                text-align: left;
+                padding-left: 60px;
+                padding-right: 20px;
+            }
+
+            .timeline-line {
+                left: 30px;
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -15px;
+                border-right: 15px solid rgba(255, 255, 255, 0.1);
+                border-left: none;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LA GUERRA FRÍA</h1>
+        <p>Una cronología de los acontecimientos más importantes (1945-1991)</p>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color" style="background: #ff6b6b;"></div>
+            <span>Eventos Críticos</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #4ecdc4;"></div>
+            <span>Conflictos Militares</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #45b7d1;"></div>
+            <span>Diplomacia</span>
+        </div>
+    </div>
+
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item" style="animation-delay: 0s;">
+            <div class="timeline-content">
+                <div class="year">1945</div>
+                <div class="event-title">Conferencia de Yalta</div>
+                <div class="event-description">
+                    Roosevelt, Churchill y Stalin se reúnen para decidir el futuro de Europa post-guerra. Se establecen las esferas de influencia que marcarán la división del mundo.
+                </div>
+                <div class="event-impact">
+                    Impacto: Sentó las bases para la división de Europa en bloques antagónicos.
+                </div>
+            </div>
+            <div class="timeline-dot" style="background: rgb(255, 107, 107); transform: translate(-50%, -50%) scale(1);"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 0.2s;">
+            <div class="timeline-content">
+                <div class="year">1947</div>
+                <div class="event-title">Doctrina Truman y Plan Marshall</div>
+                <div class="event-description">
+                    <span class="usa-flag">Estados Unidos</span> anuncia su compromiso de contener el comunismo y lanza un masivo programa de ayuda económica para reconstruir Europa Occidental.
+                </div>
+                <div class="event-impact">
+                    Impacto: Consolidó la división de Europa y marcó el inicio formal de la Guerra Fría.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 0.4s;">
+            <div class="timeline-content">
+                <div class="year">1948-1949</div>
+                <div class="event-title">Bloqueo de Berlín</div>
+                <div class="event-description">
+                    <span class="ussr-flag">La URSS</span> bloquea el acceso terrestre a Berlín Occidental. Los Aliados responden con un puente aéreo masivo que dura 11 meses.
+                </div>
+                <div class="event-impact">
+                    Impacto: Primera gran crisis de la Guerra Fría. Demostró la determinación occidental.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 0.6s;">
+            <div class="timeline-content">
+                <div class="year">1949</div>
+                <div class="event-title">Creación de la OTAN</div>
+                <div class="event-description">
+                    Se establece la Organización del Tratado del Atlántico Norte como alianza militar occidental. <span class="ussr-flag">La URSS</span> obtiene también la bomba atómica.
+                </div>
+                <div class="event-impact">
+                    Impacto: Consolidó las alianzas militares e inició la carrera armamentística nuclear.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 0.8s;">
+            <div class="timeline-content">
+                <div class="year">1950-1953</div>
+                <div class="event-title">Guerra de Corea</div>
+                <div class="event-description">
+                    Primera "guerra caliente" de la Guerra Fría. Corea del Norte (apoyada por China y la URSS) invade Corea del Sur (apoyada por EE.UU. y la ONU).
+                </div>
+                <div class="event-impact">
+                    Impacto: Demostró que la Guerra Fría podía convertirse en conflictos armados por delegación.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 1s;">
+            <div class="timeline-content">
+                <div class="year">1955</div>
+                <div class="event-title">Pacto de Varsovia</div>
+                <div class="event-description">
+                    <span class="ussr-flag">La URSS</span> responde a la OTAN creando su propia alianza militar con los países del bloque socialista de Europa Oriental.
+                </div>
+                <div class="event-impact">
+                    Impacto: Completó la división militar de Europa en dos bloques antagónicos.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 1.2s;">
+            <div class="timeline-content">
+                <div class="year">1957</div>
+                <div class="event-title">Lanzamiento del Sputnik</div>
+                <div class="event-description">
+                    <span class="ussr-flag">La URSS</span> lanza el primer satélite artificial, iniciando la carrera espacial y demostrando su capacidad tecnológica militar.
+                </div>
+                <div class="event-impact">
+                    Impacto: Shock psicológico en Occidente. Inició la carrera espacial como símbolo de supremacía.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 1.4s;">
+            <div class="timeline-content">
+                <div class="year">1961</div>
+                <div class="event-title">Construcción del Muro de Berlín</div>
+                <div class="event-description">
+                    <span class="ussr-flag">Alemania Oriental</span> construye un muro para evitar la fuga masiva de ciudadanos hacia el oeste. Se convierte en el símbolo de la división.
+                </div>
+                <div class="event-impact">
+                    Impacto: Símbolo más visible de la Guerra Fría y la división ideológica del mundo.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 1.6s;">
+            <div class="timeline-content">
+                <div class="year">1962</div>
+                <div class="event-title">Crisis de los Misiles de Cuba</div>
+                <div class="event-description">
+                    <span class="ussr-flag">La URSS</span> instala misiles nucleares en Cuba. <span class="usa-flag">EE.UU.</span> impone un bloqueo naval. El mundo estuvo al borde de la guerra nuclear.
+                </div>
+                <div class="event-impact">
+                    Impacto: Momento más cercano a una guerra nuclear. Condujo a la distensión y acuerdos de control de armas.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 1.8s;">
+            <div class="timeline-content">
+                <div class="year">1964-1975</div>
+                <div class="event-title">Guerra de Vietnam</div>
+                <div class="event-description">
+                    <span class="usa-flag">EE.UU.</span> interviene militarmente en Vietnam del Sur para evitar la unificación comunista. Termina con la retirada estadounidense y la victoria norvietnamita.
+                </div>
+                <div class="event-impact">
+                    Impacto: Primera gran derrota militar estadounidense. Cambió la opinión pública sobre la Guerra Fría.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 2s;">
+            <div class="timeline-content">
+                <div class="year">1969</div>
+                <div class="event-title">Llegada del Hombre a la Luna</div>
+                <div class="event-description">
+                    <span class="usa-flag">EE.UU.</span> logra el objetivo de Kennedy de llegar a la Luna antes que los soviéticos, ganando prestigio en la carrera espacial.
+                </div>
+                <div class="event-impact">
+                    Impacto: Victoria simbólica crucial para EE.UU. en la competencia tecnológica con la URSS.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 2.2s;">
+            <div class="timeline-content">
+                <div class="year">1972</div>
+                <div class="event-title">Acuerdos SALT I</div>
+                <div class="event-description">
+                    Nixon y Brezhnev firman los primeros acuerdos de limitación de armas estratégicas, marcando el inicio de la détente o distensión.
+                </div>
+                <div class="event-impact">
+                    Impacto: Primer paso hacia el control de la carrera armamentística nuclear.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 2.4s;">
+            <div class="timeline-content">
+                <div class="year">1979</div>
+                <div class="event-title">Invasión Soviética de Afganistán</div>
+                <div class="event-description">
+                    <span class="ussr-flag">La URSS</span> invade Afganistán para mantener un gobierno pro-soviético. <span class="usa-flag">EE.UU.</span> apoya a los muyahidines afganos.
+                </div>
+                <div class="event-impact">
+                    Impacto: "Vietnam soviético". Contribuyó significativamente al colapso de la URSS.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 2.6s;">
+            <div class="timeline-content">
+                <div class="year">1985</div>
+                <div class="event-title">Gorbachev llega al poder</div>
+                <div class="event-description">
+                    Mijaíl Gorbachev se convierte en líder soviético e introduce las reformas de Glasnost (transparencia) y Perestroika (reestructuración).
+                </div>
+                <div class="event-impact">
+                    Impacto: Inició las reformas que llevarían al fin de la Guerra Fría y la URSS.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 2.8s;">
+            <div class="timeline-content">
+                <div class="year">1989</div>
+                <div class="event-title">Caída del Muro de Berlín</div>
+                <div class="event-description">
+                    Los ciudadanos de Berlín Oriental derriban el muro que dividió la ciudad durante 28 años. Símbolo del fin de la Guerra Fría.
+                </div>
+                <div class="event-impact">
+                    Impacto: Momento simbólico del triunfo de la democracia sobre el comunismo autoritario.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item" style="animation-delay: 3s;">
+            <div class="timeline-content">
+                <div class="year">1991</div>
+                <div class="event-title">Disolución de la URSS</div>
+                <div class="event-description">
+                    La Unión Soviética se disuelve oficialmente el 25 de diciembre. Gorbachev renuncia y <span class="usa-flag">EE.UU.</span> emerge como única superpotencia mundial.
+                </div>
+                <div class="event-impact">
+                    Impacto: Fin oficial de la Guerra Fría. Inicio del orden mundial unipolar liderado por EE.UU.
+                </div>
+            </div>
+            <div class="timeline-dot"></div>
+        </div>
+    </div>
+
+    <script>
+        // Animación de entrada escalonada
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        timelineItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.2}s`;
+        });
+
+        // Efecto de hover mejorado
+        timelineItems.forEach(item => {
+            const content = item.querySelector('.timeline-content');
+            const dot = item.querySelector('.timeline-dot');
+            
+            content.addEventListener('mouseenter', () => {
+                dot.style.background = '#4ecdc4';
+                dot.style.transform = 'translate(-50%, -50%) scale(1.3)';
+            });
+
+            content.addEventListener('mouseleave', () => {
+                dot.style.background = '#ff6b6b';
+                dot.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+
+        // Efecto de scroll suave
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            document.querySelector('.timeline-line').style.transform = `translateX(-50%) translateY(${rate}px)`;
+        });
+    </script>
+
+</body></html>
